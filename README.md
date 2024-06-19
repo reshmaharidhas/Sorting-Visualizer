@@ -33,6 +33,15 @@ The visualizer currently supports all these sorting algorithms,
 - Calculates and displays the total seconds to complete every sorting process.
 - Sound to enhance the visualizer experience with its speed.
 
+## Screenshots
+GUI
+![shuffled_unsorted_bars](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/f05c5cc9-00db-4a3f-a254-b2bcd25e8185)
+Sorted bars
+![sorted](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/fd61cb55-8ebc-43b1-8763-292581bed320)
+Customized bar and background color
+![custom bar and background color unsorted](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/a8236f3a-05c3-4f8c-b317-586cd767a328)
+
+
 ## Development Tools💻
 - Pycharm
 - PyInstaller
