@@ -33,6 +33,20 @@ The visualizer currently supports all these sorting algorithms,
 - Calculates and displays the total seconds to complete every sorting process.
 - Sound to enhance the visualizer experience with its speed.
 
+# Algorithms demo:
+## Bubble sort
+![Bubble-Sort-1](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/b9a2c8da-efe4-4e19-82b9-9ff606011dd7)
+## Insertion sort
+![Insertion-Sort-1-002Speed](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/ed51a051-9e40-4e2d-b553-906ea2f795e4)
+## Selection sort
+![Selection-Sort-1-002Speed](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/56d1f3f6-6608-4762-a69a-9443cdc59bb8)
+## Gnome sort
+![Gnome-Sort-1-002Speed](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/b2a621e1-4888-482f-84ee-744abc8c84bc)
+## Shaker sort
+![Shaker-Sort-1-002Speed](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/60c2aee4-6fa7-45d9-86c6-636db861f5a9)
+## Odd even sort
+![Odd-Even-Sort-1-002Speed](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/85335543-5928-4434-a17f-c8d192d85b66)
+
 ## Screenshots
 GUI
 ![shuffled_unsorted_bars](https://github.com/reshmaharidhas/Sorting-Visualizer/assets/37250413/f05c5cc9-00db-4a3f-a254-b2bcd25e8185)
