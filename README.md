@@ -1,7 +1,11 @@
 # Sorting-Visualizer
 <p align="center">
   <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Freshmaharidhas%2FSorting-Visualizer&labelColor=%23000000&countColor=%2300ff00&style=plastic&labelStyle=none"/>
+  <img src="https://img.shields.io/github/languages/code-size/reshmaharidhas/Sorting-Visualizer"/>
   <img src="https://img.shields.io/github/languages/top/reshmaharidhas/Sorting-Visualizer?labelColor=%23000000"/>
+  <img src="https://img.shields.io/github/v/release/reshmaharidhas/Sorting-Visualizer"/>
+  <img src="https://img.shields.io/github/release-date/reshmaharidhas/Sorting-Visualizer"/>
+  <img src="https://img.shields.io/github/created-at/reshmaharidhas/Sorting-Visualizer"/>
   <img src="https://img.shields.io/github/license/reshmaharidhas/Sorting-Visualizer"/>
 </p>
 A GUI sorting visualizer desktop application built using Tkinter.
