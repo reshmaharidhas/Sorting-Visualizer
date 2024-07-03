@@ -25,6 +25,7 @@ The visualizer currently supports all these sorting algorithms,
 - Gnome sort
 - Shaker sort
 - Odd even sort
+- Dutch national flag algorithm (DNF sort)
 
 ## Features ✨
 - Sorts list of random numbers by six sorting algorithms.
