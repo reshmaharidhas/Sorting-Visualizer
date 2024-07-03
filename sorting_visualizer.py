@@ -67,6 +67,98 @@ def draw_lines(arr):
         line_value_objects.append(line_value)
         last_x += 23
 
+def draw_lines_dutch_national_flag():
+    global line_objects, canvas1, bar_color, canvas_bg_color, line_value_objects
+    # Delete all previous lines from the canvas.
+    canvas1.delete('all')
+    line_objects = []
+    line_value_objects = []
+    status_label.config(text="Idle")
+    dutch_flag_colors = ["red","white","blue"]
+    canvas3.config(background="#000000")
+    canvas1.config(background="#000000")
+    arr = []
+    for ptr in range(0,56):
+        arr.append(random.randrange(0,3))
+    # Shuffle the given array 'arr'.
+    random.shuffle(arr)
+    last_x = 14
+    # Create lines of width 15 on canvas 'canvas1' along with height of that line as text displaying below the line.
+    for num in range(len(arr)):
+        # Create line of width 15 with color 'bar_color'.
+        line1 = canvas1.create_line(last_x, 0, last_x, 300, fill=dutch_flag_colors[arr[num]], width=15)
+        # Insert the created line's object to a list 'line_objects'.
+        line_objects.append(line1)
+        # Create a text on the canvas 'canvas1' which is actually the value of current array element from array 'arr'.
+        # It denotes the height of the line 'line1'.
+        line_value = canvas1.create_text(last_x, 300 + 7, text=str(arr[num]), fill=dutch_flag_colors[arr[num]])
+        # Insert the text's object in a list 'line_value_objects'.
+        line_value_objects.append(line_value)
+        last_x += 23
+    return arr
+def exchange_dutch_national_flag(a,b):
+    global canvas1,line_objects,animation_speed,line_value_objects
+    play_sound()
+    height1 = canvas1.coords(line_objects[a])[3]
+    height2 = canvas1.coords(line_objects[b])[3]
+    x1 = canvas1.coords(line_objects[a])[0]
+    x2 = canvas1.coords(line_objects[b])[0]
+    diff = abs(x2-x1)
+    # Move the line bar at index 'a' towards right side by 'diff'.
+    canvas1.move(line_objects[a],diff,0)
+    # Move the text of the line bar at index 'a' towards right side by 'diff'.
+    canvas1.move(line_value_objects[a],diff,0)
+    # Move the line bar at index 'b' towards left side by 'diff'.
+    canvas1.move(line_objects[b],-diff,0)
+    # Move the text of the line bar at index 'b' towards left side by 'diff'.
+    canvas1.move(line_value_objects[b],-diff,0)
+    # Swapping lines in list 'line_objects', and the text of line bars in list 'line_value_objects'.
+    line_objects[a],line_objects[b] = line_objects[b],line_objects[a]
+    line_value_objects[a],line_value_objects[b] = line_value_objects[b],line_value_objects[a]
+    root.update()
+    time.sleep(animation_speed)
+def dutch_national_flag_algorithm():
+    arr2 = draw_lines_dutch_national_flag()
+    time.sleep(1)
+    # Disable all sorting buttons.
+    disable_all_buttons()
+    # Reset the timer text to 0.00
+    time_label.config(text="0.00 seconds")
+    # Show status
+    status_label.config(text="Running Dutch National flag algorithm..")
+    # Store the current time in variable 'starting_time' as beginning time of bubble sort.
+    starting_time = calculate_run_start_time()
+    lo = 0
+    hi = len(arr2)-1
+    mid = 0
+    # Iterate till all the elements
+    # are sorted
+    while mid <= hi:
+        # If the element is 0
+        if arr2[mid] == 0:
+            exchange_dutch_national_flag(lo,mid)
+            arr2[lo], arr2[mid] = arr2[mid], arr2[lo]
+            lo = lo + 1
+            mid = mid + 1
+        # If the element is 1
+        elif arr2[mid] == 1:
+            mid = mid + 1
+        # If the element is 2
+        else:
+            exchange_dutch_national_flag(mid,hi)
+            arr2[mid], arr2[hi] = arr2[hi], arr2[mid]
+            hi = hi - 1
+    # Calculate current time because DNF sort completed now.
+    ending_time = calculate_run_end_time()
+    # Calculate the total time of execution of DNF sort.
+    total_execution_time = find_total_time_to_sort(starting_time, ending_time)
+    # Display the total time of execution.
+    time_label.config(text=str(total_execution_time) + " seconds")
+    # Change status_label text
+    status_label.config(text="Dutch National flag algorithm completed sorting")
+    # Activate all the sorting buttons.
+    activate_all_buttons()
+
 # Function to perform bubble sort on given list 'arr'.
 def bubble_sort(arr):
     # Disable all sorting buttons.
@@ -420,7 +512,7 @@ def add_max_value_of_array():
 
 # Function to show app about section.
 def show_about():
-    messagebox.showinfo("About Sorting Visualizer","Version:1.0\nDate of release:20th June 2024\nOS: Windows 10 or later\nDeveloper: Reshma Haridhas")
+    messagebox.showinfo("About Sorting Visualizer","Version:1.1\nDate of release:3rd July 2024\nOS: Windows 10 or later\nDeveloper: Reshma Haridhas")
 
 # GUI
 root = tk.Tk()
@@ -512,6 +604,8 @@ btn_shaker_sort = tk.Button(btn_frame,text="Shaker sort",command=lambda :shaker_
 btn_shaker_sort.grid(row=0,column=6,padx=5)
 btn_oddeven_sort = tk.Button(btn_frame,text="Odd even sort",command=lambda :odd_even_sort(arr),bg="brown",activebackground="brown",fg="white",font=("Arial",15))
 btn_oddeven_sort.grid(row=0,column=7,padx=4)
+btn_dutch_national_flag_sort = tk.Button(btn_frame,text="DNF sort",command=dutch_national_flag_algorithm,font=("Arial",15),fg="blue",bg="#ffffff")
+btn_dutch_national_flag_sort.grid(row=0,column=8,padx=4)
 # array of numbers
 arr = [64,300,100,200,150,230,50,20,77,81,90,34,44,55,13,10,130,585,444,100,270,224,68,73,85,97,250,330,210,110,125,30,40,60,600,500,530,520,93,420,400,360,340,450,550,476,170,181,190,144,140,570,504,34,122,222]
 # list to hold bar (lines) in canvas 'canvas1'.
